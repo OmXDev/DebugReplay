@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",                  // or "NodeNext"
+    "moduleResolution": "node",         // try "nodenext" if still issues
+    "target": "ES2020",                 
+    "esModuleInterop": true,            // important for axios!
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
+  }
+}
