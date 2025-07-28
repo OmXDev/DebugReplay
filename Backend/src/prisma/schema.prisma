@@ -2,7 +2,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -16,6 +15,6 @@ model Log {
   requestBody  Json
   responseBody Json
   headers      Json
-  duration     Int
   createdAt    DateTime @default(now())
+  duration     Int
 }
