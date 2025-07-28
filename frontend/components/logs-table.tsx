@@ -39,7 +39,7 @@ export function LogsTable() {
     try {
       setLoading(true)
 
-      const res = await fetch(`${process.env.BACKEND_URL}/api/logs`)  
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/logs`)  
       if (!res.ok) throw new Error("Failed to fetch")
 
       const logs = await res.json()
