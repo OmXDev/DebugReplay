@@ -1,105 +1,101 @@
 # 🔍 Debug Replay Middleware
 
-**debug-replay-middleware** is an Express middleware that automatically logs HTTP request and response data to the [DebugReplay Dashboard](https://debug-replay.vercel.app/) — enabling developers to easily inspect, search, and monitor API behavior in real-time.
+**`debug-replay-middleware`** is an Express middleware that automatically logs HTTP request and response data to the [DebugReplay Dashboard](https://debug-replay.vercel.app). It allows developers to easily inspect, search, and monitor API behavior in real time — with **zero config**.
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-- 📦 Plug-and-play Express middleware  
-- 📄 Captures request/response data  
-- 🕵️ Powerful search and filtering in dashboard  
-- 🔐 No setup or API key needed  
-- 🖥 View logs on: [https://debug-replay.vercel.app](https://debug-replay.vercel.app)
+- ✅ Plug-and-play Express middleware
+- 🔎 Captures request and response data (body, headers, status, duration)
+- 🔐 No project key or auth required
+- 📊 Searchable logs in your private dashboard
+- 🖥️ Hosted dashboard: [debug-replay.vercel.app](https://debug-replay.vercel.app)
 
 ---
 
 ## 📦 Installation
 
-```bash
 npm install debug-replay-middleware
-🧠 Usage
-In your Express app (using TypeScript or JavaScript):
 
-ts
-Copy
-Edit
+--- 
+
+🧠 Quick Usage
+
 import express from 'express';
 import debugReplay from 'debug-replay-middleware';
 
 const app = express();
 
-// Use the middleware (should be above your routes)
-app.use(debugReplay());
+app.use(express.json());
+app.use(debugReplay()); // Add this before your routes
 
-// Your routes
 app.get('/', (req, res) => {
   res.send({ message: 'Hello from DebugReplay!' });
 });
 
 app.listen(3000, () => console.log('Server running on port 3000'));
-✅ That's it! All logs will automatically be captured and shown at debug-replay.vercel.app
 
-🔧 How It Works
-When added, this middleware:
+✅ That's it! Logs will appear on your dashboard:
+🌐 https://debug-replay.vercel.app
 
-Captures request method, URL, status, headers, body, and response
+🧩 How It Works
+Once added, the middleware:
 
-Measures duration of each API call
+Captures HTTP request & response data
 
-Sends logs automatically to the backend for DebugReplay
+Tracks execution duration
 
-Requires no configuration or project key
+Sends log data to the DebugReplay backend
 
-🧱 Monorepo Structure
-This project is built using a monorepo layout with the following folders:
+Displays logs in a web dashboard — no setup or keys needed
 
-/Frontend – Built in Next.js
-TypeScript support
+🏗️ Monorepo Project Structure
+This project is organized as a monorepo with the following folders:
 
-Build: npm run build
+/Frontend – Next.js App
+Written in TypeScript
+
+Used for dashboard UI
 
 Install: npm install
 
-Environment Variable: BACKEND_URL
+Build: npm run build
+
+Env: BACKEND_URL (URL to backend)
 
 /Backend – Express + Prisma + Supabase
-TypeScript + Prisma setup
+Written in TypeScript
 
-Build:
+Logs incoming requests
 
-bash
-Copy
-Edit
+Install & Build:
+
 npm install && npx prisma generate --schema=src/prisma/schema.prisma && npx tsc
 Start:
 
-bash
-Copy
-Edit
 node dist/index.js
-Environment Variables:
+Env:
 
-DATABASE_URL (PostgreSQL via Supabase)
+env
 
-FRONTEND_URL
+DATABASE_URL=your_supabase_postgres_url
+FRONTEND_URL=https://debug-replay.vercel.app
+📤 Logging Destination
+Logs are sent to:
 
-📡 Logging Destination
-All logs are sent to:
-🌐 https://debug-replay.vercel.app
+🔗 https://debug-replay.vercel.app
 
-From there, users can:
+Where you can:
 
-View full request and response payloads
+Search logs by method, URL, status
 
-Filter logs by URL, status code, method, etc.
+Inspect request/response payloads
 
-Monitor API behavior in real time
+View real-time activity
 
-🧪 Example Log Captured
-json
-Copy
-Edit
+🧪 Example Log Payload
+
 {
   "method": "POST",
   "url": "/api/users",
@@ -109,16 +105,13 @@ Edit
   "headers": { ... },
   "duration": 42
 }
-🔐 Environment Variables (Backend)
-env
-Copy
-Edit
+🔐 Environment Variables
+Backend
+
 DATABASE_URL=your_supabase_postgres_url
 FRONTEND_URL=https://debug-replay.vercel.app
-🔐 Environment Variables (Frontend)
-env
-Copy
-Edit
+Frontend
+
 BACKEND_URL=https://your-backend-url.onrender.com
 🛠 Built With
 ⚙️ Node.js + Express
@@ -131,21 +124,18 @@ BACKEND_URL=https://your-backend-url.onrender.com
 
 ☁️ Deployed on Render & Vercel
 
-🧑‍💻 TypeScript everywhere
+🧑‍💻 TypeScript end-to-end
 
-📃 License
+📜 License
 MIT – Free to use, modify, and distribute.
 
-📫 Contributing
-Pull requests, feedback, and ideas are welcome. Please open an issue or PR on GitHub.
+🤝 Contributing
+Pull requests and ideas are welcome!
+Open an issue or PR at GitHub.
 
-🔗 Links
-🔍 Middleware: npmjs.com/package/debug-replay-middleware
+🔗 Useful Links
+📦 NPM: npmjs.com/package/debug-replay-middleware
 
-💻 Dashboard: debug-replay.vercel.app
+🖥️ Dashboard: debug-replay.vercel.app
 
-📁 Repo: github.com/OmXDev/DebugReplay
-
-yaml
-Copy
-Edit
+📁 Source Code: github.com/OmXDev/DebugReplay
