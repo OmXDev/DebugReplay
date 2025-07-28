@@ -1,7 +1,5 @@
 
----
 
-````markdown
 # 🔍 Debug Replay Middleware
 
 **`debug-replay-middleware`** is an Express middleware that automatically logs HTTP request and response data to the [DebugReplay Dashboard](https://debug-replay.vercel.app). It allows developers to easily inspect, search, and monitor API behavior in real time — with **zero config**.
